@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+
+<head>
+<!-- Specify the character encoding for the document -->
+<meta charset="UTF-8">
+<title>Registration and Login App</title>
+
+<!-- Link to the bootstrap stylesheet -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+</head>
+<body>
+	<nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
+		<div class="container">
+			<a class="navbar-brand" href="#" th:href="@{/}">Registration and
+				Login Module</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarResponsive" aria-controls="navbarResponsive"
+				aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div id="navbar" class="collapse navbar-collapse">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item" sec:authorize="isAuthenticated()"><a
+						class="nav-link" href="#" th:href="@{/logout}">Logout</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<!-- <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
+		<div class="container">
+			<a class="navbar-brand" href="#" th:href="@{/}">Registration and
+				Login Module</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarResponsive" aria-controls="navbarResponsive"
+				aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+		</div>
+	</nav>
+
+	<div id="navbar" class="collapse navbar-collapse">
+		<ul class="nav navbar-nav">
+			<li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Logout</a>
+			</li>
+		</ul>
+	</div> -->
+
+	<br>
+	<br>
+
+	<div class="container">
+		<h1>Welcome to the App</h1>
+
+		Welcome <span sec:authentication="principal.username">User</span>
+
+	</div>
+
+
+
+</body>
+</html>

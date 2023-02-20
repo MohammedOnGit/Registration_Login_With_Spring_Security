@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- Specify the character encoding for the document -->
+<meta charset="UTF-8">
+<title>Registration</title>
+
+<!-- Link to the bootstrap stylesheet -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+</head>
+<body>
+	<nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
+		<div class="container">
+			<a class="navbar-brand" href="#" th:href="@{/}">Registration and
+				Login Module</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarResponsive" aria-controls="navbarResponsive"
+				aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+		</div>
+	</nav>
+
+
+	<!-- Container for the registration form -->
+	<div class="container my-5">
+		<div class="row">
+			<div class="col-md-6 mx-auto">
+				<!-- Display a success message if the user has been registered successfully -->
+				<div th:if="${param.success}">
+					<div class="alert alert-success">You've successfully
+						registered to our awesome app</div>
+				</div>
+				<!-- Add some spacing between the message and the form -->
+				<br>
+				<br>
+
+				<h1 class="text-center">Registration</h1>
+
+				<!-- Registration form with action and object -->
+				<form th:action="@{/registration}" method="post" th:object="${user}"
+					class="my-5">
+					<div class="form-group">
+						<label for="firstName">First Name</label>
+						<!-- First Name input field with required attribute and autofocus -->
+						<input id="firstName" class="form-control" th:field="*{firstName}"
+							required autofocus>
+					</div>
+					<div class="form-group">
+						<label for="lastName">Last Name</label>
+						<!-- Last Name input field with required attribute and autofocus -->
+						<input id="lastName" class="form-control" th:field="*{lastName}"
+							required>
+					</div>
+					<div class="form-group">
+						<label for="email">Email</label>
+						<!-- Email input field with required attribute and autofocus -->
+						<input id="email" class="form-control" th:field="*{email}"
+							type="email" required>
+					</div>
+					<div class="form-group">
+						<label for="password">Password</label> <input id="password"
+							class="form-control" type="password" th:field="*{password}"
+							required>
+					</div>
+					<div class="form-group text-center">
+						<button type="submit" class="btn btn-success">Register</button>
+						<p class="my-3">
+							Already registered? <a href="/" th:href="@{/login}">Login
+								here</a>
+						</p>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
